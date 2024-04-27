@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run a one-line script-1
-        run: echo Hello, world!
+        run: exit 1
 
   job-2:
     name: job-2
