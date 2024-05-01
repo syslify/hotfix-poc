@@ -1,16 +1,27 @@
 name: Hotfix
 
 on:
-  push:
+  pull_request:
     branches:
-      - hotfix/*
+      - main
 
 jobs:
-  build-hotfix:
-    name: build-hotfix
+  job-1:
+    if: startsWith(github.head_ref, 'hotfix')
+    name: job-1
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      - name: Run a one-line script
+      - name: Run a one-line script-1
+        run: echo Hello, world!
+
+  job-2:
+    if: startsWith(github.head_ref, 'hotfix')
+    name: job-2
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a one-line script-2
         run: echo Hello, world!

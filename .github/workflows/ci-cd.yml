@@ -10,6 +10,7 @@ on:
 
 jobs:
   job-1:
+    if: startsWith(github.head_ref, 'hotfix') != true
     name: job-1
     runs-on: ubuntu-latest
 
@@ -19,6 +20,7 @@ jobs:
         run: echo Hello, world!
 
   job-2:
+    if: startsWith(github.head_ref, 'hotfix') != true
     name: job-2
     runs-on: ubuntu-latest
 
