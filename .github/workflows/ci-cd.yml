@@ -30,6 +30,12 @@ jobs:
           echo Merged branch: $branch_name
           echo "merged_branch_name=$branch_name" >> $GITHUB_ENV
 
+  intermediate_job:
+    runs-on: ubuntu-latest
+    needs: get-merged-branch-name
+    steps:
+      - run: echo ${{ needs.get-merged-branch-name.outputs.merged_branch_name }}
+
   job-1:
     name: job-1
     runs-on: ubuntu-latest
