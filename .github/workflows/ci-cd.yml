@@ -1,4 +1,4 @@
-name: Hotfix
+name: CI-CD
 
 on:
   pull_request:
@@ -15,6 +15,9 @@ jobs:
     outputs:
       merged_branch_name: ${{ steps.branch_name.outputs.merged_branch_name }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Get the branch name
         id: branch_name
         run: |
