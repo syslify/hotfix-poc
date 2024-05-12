@@ -28,7 +28,7 @@ jobs:
           [[ $commit_subject =~ $regex ]]
           branch_name=${BASH_REMATCH}
           echo Merged branch: $branch_name
-          echo "merged_branch_name=$branch_name" >> $GITHUB_ENV
+          echo "merged_branch_name=$branch_name" >> "$GITHUB_OUTPUT"
 
   intermediate_job:
     runs-on: ubuntu-latest
